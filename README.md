@@ -24,18 +24,18 @@ import `Wizard.vue` & `validate` function to **App.vue**
 
     <template>
 	    <Wizard v-slot="{ index }" :steps="steps.value" :validate-function="validate()">
-		    <div v-if='index === 1'>
-			    Step {{ index }}'s content
-		    </div>
-		    <div v-if='index === 2'>
-			    Step {{ index }}'s content
-			</div>
-		    <div v-if='index === 3'>
-			    Step {{ index }}'s content
-		    </div>
-			<div v-if='index === 4'>
-			    Step {{ index }}'s content
-			</div>
+            <div v-if='index === 1'>
+                Step {{ index }}'s content
+            </div>
+            <div v-if='index === 2'>
+                Step {{ index }}'s content
+            </div>
+            <div v-if='index === 3'>
+                Step {{ index }}'s content
+            </div>
+            <div v-if='index === 4'>
+                Step {{ index }}'s content
+            </div>
 	    </Wizard>
     </template>
     
@@ -47,19 +47,19 @@ import `Wizard.vue` & `validate` function to **App.vue**
     let indexStep = ref(0);
     
     let steps = reactive([{
-	    index: indexStep++,
+	    index: indexStep.value++,
 	    name: 'Products Source'
     },
     {
-	    index: indexStep++, 
+	    index: indexStep.value++, 
 	    name: 'Add Products'
     },
     {
-	    index: indexStep++,
+	    index: indexStep.value++,
 	    name: 'Customer Info'
     },
     {
-	    index: indexStep++,
+	    index: indexStep.value++,
 	    name: 'Review Order'
     }])
     
