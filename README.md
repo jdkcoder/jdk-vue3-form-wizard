@@ -12,9 +12,11 @@ Create the file **setIndex.js** in **src** folder
     let index = ref(1)
     export { index }
 
+
 import `{ index }` from **setIndex.js**  to **Wizard.vue** & **App.vue**
 
     import { index } from  './setIndex'
+
 
 import `Wizard.vue` & `validate` function to **App.vue**
 
@@ -32,29 +34,29 @@ import `Wizard.vue` & `validate` function to **App.vue**
 			    Step {{ index }}'s content
 		    </div>
 			<div v-if='index === 4'>
-				Step {{ index }}'s content
+			    Step {{ index }}'s content
 			</div>
-		</Wizard>
+	    </Wizard>
     </template>
     
     <script setup>
     import { reactive, ref } from 'vue';
-    import { index } from  './setIndex';
-    import  Wizard  from  './Wizard.vue';
+    import { index } from './setIndex';
+    import Wizard from './Wizard.vue';
     
     let indexStep = ref(0);
     
     let steps = reactive([{
-	    index:  indexStep++,
-	    name:  'Products Source'
+	    index: indexStep++,
+	    name: 'Products Source'
     },
     {
-	    index:  indexStep++, 
-	    name:  'Add Products'
+	    index: indexStep++, 
+	    name: 'Add Products'
     },
     {
-	    index:  indexStep++,
-	    name:  'Customer Info'
+	    index: indexStep++,
+	    name: 'Customer Info'
     },
     {
 	    index: indexStep++,
@@ -62,9 +64,9 @@ import `Wizard.vue` & `validate` function to **App.vue**
     }])
     
     function validate() {
-    	if (index.value > 1) {
-    		alert('1')
-    	}
+        if (index.value > 1) {
+            alert('1')
+        }
     }
     </script>
 
