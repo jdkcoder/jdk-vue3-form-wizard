@@ -8,7 +8,7 @@
         Amazon
       </label>
       <label>
-        <input v-model="orderFrom" value="2" type="radio" name="test" />
+        <input v-model="orderFrom" value="2" type="radio" />
         External
       </label>
     </div>
@@ -22,6 +22,8 @@
       Step {{ index }}'s content
     </div>
   </Wizard>
+
+  <div id="credit"><a href="//github.com/jdkcoder">Joker Dark Knight</a> <span>-</span> <a href="//jdk.vn" target="_blank">wWw.JDK.VN</a></div>
 </template>
 
 <script setup>

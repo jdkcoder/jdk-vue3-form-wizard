@@ -10,6 +10,10 @@ body, #app
     max-width: 100vw
     min-height: 100vh
     overflow: hidden
+    display: flex
+    flex-flow: column
+    align-items: center
+    justify-content: center
 
     button
         font-family: 'Nunito', sans-serif
@@ -22,3 +26,22 @@ body, #app
 
     h1
         text-align: center
+
+    #credit
+        display: grid
+        grid-auto-flow: column
+        font-size: 1.125rem
+        font-weight: 600
+
+        a
+            text-decoration: none
+            color: var(--clr,#fff)
+            letter-spacing: var(--ls, 0.5px)
+            transition: all .25s ease
+
+            &:hover
+                --clr: #8057d7
+                --ls: 1.5px
+
+        & > * + *
+            margin-left: .75rem
