@@ -3,7 +3,14 @@
 
   <Wizard v-slot="{ index }" :validate-function="validate()">
     <div v-if='index === 1'>
-      Step {{ index }}'s content
+      <label>
+        <input v-model="orderFrom" value="1" type="radio" name="test" />
+        Amazon
+      </label>
+      <label>
+        <input v-model="orderFrom" value="2" type="radio" name="test" />
+        External
+      </label>
     </div>
     <div v-if='index === 2'>
       Step {{ index }}'s content
