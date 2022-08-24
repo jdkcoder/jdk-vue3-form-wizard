@@ -1,0 +1,122 @@
+#form-wizard
+    max-width: 1200px
+    margin: 2rem auto
+    width: 100vw
+    overflow: hidden
+    border-radius: var(--jdk-fw-radius, .75rem)
+    border: var(--jdk-fw-border, var(--jdk-fw-width, 2px) var(--jdk-fw-border-type, dashed) var(--jdk-fw-border-clr, #8057d7))
+    padding: var(--jdk-fw-padding, 1rem)
+
+    & > * + *
+        margin-top: 1.5rem
+
+    #steps
+        display: flex
+        flex-flow: row
+        overflow-x: auto
+        overflow-y: hidden
+        white-space: nowrap
+        width: 100%
+
+        &::-webkit-scrollbar
+            display: none
+
+        & > * + *
+            margin-left: 1.75rem
+
+        button
+            flex: 1
+            display: grid
+            grid-template-rows: max-content min-content
+            place-items: center
+            padding-top: .5rem
+            border-radius: .5rem
+
+            &.active
+                --active-bg: #8057d7
+                --active-border-clr: #8057d7
+                --active-step-name-clr: #8057d7
+                --active-step-num-clr: #161616
+
+            & > * + *
+                margin-top: 1rem
+
+            .nth-step
+                --s: 2rem
+                position: relative
+                display: grid
+                place-items: center
+                border-radius: 100%
+                background: var(--unactive-bg, var(--active-bg, #363636))
+                box-shadow: 0 0 0 2px var(--unactive-border-clr, var(--active-border-clr, #4e4e4e))
+                font-size: 1rem
+                width: var(--nth-step-size, var(--s))
+                aspect-ratio: 1
+                color: var(--unactive-step-num-clr, var(--active-step-num-clr, #fff))
+                transition: all .25s ease-in
+                @supports not (aspect-ratio: 1)
+                    height: var(--nth-step-size, var(--s))
+                    width: var(--nth-step-size, var(--s))
+
+            .step-name
+                height: 100%
+                width: 100%
+                font-size: 1.125rem
+                font-weight: 600
+                color: var(--unactive-step-name-clr, var(--active-step-name-clr, #777))
+                transition: all .25s ease-in
+
+    .seperator
+        --s: .75rem
+        height: var(--seperator-size, var(--s))
+        width: var(--seperator-size, var(--s))
+        border-radius: var(--seperator-radius, .125rem)
+        transform: rotate(45deg)
+        background: var(--seperator-clr, #8057d7)
+        margin: var(--seperator-margin-y, 1rem) var(--seperator-margin-x, auto)
+        position: relative
+        pointer-events: none
+
+        &::after,&::before
+            content: ""
+            position: absolute
+            width: 100%
+            height: 100%
+            background: inherit
+            border-radius: inherit
+            top: 0
+            left: 0
+
+        &::after
+            transform: translate(120%, -120%)
+
+        &::before
+            transform: translate(-120%, 120%)
+
+    #step-footer
+        display: flex
+        flex-flow: row
+        justify-content: space-between
+
+        button
+            padding: .375rem 1.5rem
+            font-weight: 600
+            letter-spacing: 0.5px
+            border-radius: .375rem
+            font-size: 1.0625rem
+            background: var(--footer-btn-bg)
+            user-select: none
+
+            &#back
+                --footer-btn-bg: var(--back-btn-bg, #434343)
+
+                &:hover
+                    --back-btn-bg-hover: #333
+                    --back-btn-bg: var(--back-btn-bg-hover)
+
+            &#next
+                --footer-btn-bg: var(--next-btn-bg, #8057d7)
+
+                &:hover
+                    --next-btn-bg-hover: #7751c9
+                    --next-btn-bg: var(--next-btn-bg-hover)

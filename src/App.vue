@@ -1,0 +1,32 @@
+<template>
+  <h1>JDK's Vue.js 3 Form Wizard</h1>
+
+  <Wizard v-slot="{ index }" :validate-function="validate()">
+    <div v-if='index === 1'>
+      Step {{ index }}'s content
+    </div>
+    <div v-if='index === 2'>
+      Step {{ index }}'s content
+    </div>
+    <div v-if='index === 3'>
+      Step {{ index }}'s content
+    </div>
+    <div v-if='index === 4'>
+      Step {{ index }}'s content
+    </div>
+  </Wizard>
+</template>
+
+<script setup>
+import { index } from './setIndex'
+import Wizard from './Wizard.vue';
+let orderFrom = $ref(null)
+function validate() {
+  if (index.value > 1) {
+    if (!orderFrom) {
+      alert('Choose product source, first')
+      index.value = 1
+    }
+  }
+}
+</script>
