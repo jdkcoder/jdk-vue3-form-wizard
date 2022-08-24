@@ -41,7 +41,9 @@ import `Wizard.vue` & `validate` function to **App.vue**
     
     <script setup>
     import { reactive, ref } from 'vue';
+    
     import { index } from './setIndex';
+
     import Wizard from './Wizard.vue';
     
     let indexStep = ref(0);
