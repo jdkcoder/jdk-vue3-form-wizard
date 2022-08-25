@@ -167,7 +167,7 @@ function wizardCompleted() {
 --jdk-fw-border-width
 --jdk-fw-border-type
 --jdk-fw-border-clr
- --jdk-fw-padding
+--jdk-fw-padding
 
 --nth-step-unactive-bg
 --nth-step-active-bg
