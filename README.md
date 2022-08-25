@@ -12,34 +12,36 @@ Create the file **setIndex.js** in **src** folder
 ```
 import { ref } from 'vue';
 let index = ref(1)
-export { index }```
+export { index }
+```
 
 
 import `{ index }` from **setIndex.js** to **App.vue** or any your **.vue** file & **Wizard.vue** 
 
 ```
-import { index } from './setIndex'```
+import { index } from './setIndex'
+```
 ------------
 import `Wizard.vue` to **App.vue** or any your **.vue** file
+```html
+<template>
+	<Wizard v-slot="{ index }" :seperator="true" :steps="steps.value">
+        <div v-if='index === 1'>
+             Step {{ index }}'s content
+        </div>
+        <div v-if='index === 2'>
+            Step {{ index }}'s content
+        </div>
+        <div v-if='index === 3'>
+            Step {{ index }}'s content
+        </div>
+        <div v-if='index === 4'>
+            Step {{ index }}'s content
+        </div>
+	</Wizard>
+</template>
 
-    <template>
-	    <Wizard v-slot="{ index }" :seperator="true" :steps="steps.value">
-            <div v-if='index === 1'>
-                Step {{ index }}'s content
-            </div>
-            <div v-if='index === 2'>
-                Step {{ index }}'s content
-            </div>
-            <div v-if='index === 3'>
-                Step {{ index }}'s content
-            </div>
-            <div v-if='index === 4'>
-                Step {{ index }}'s content
-            </div>
-	    </Wizard>
-    </template>
-	
-    <script setup>
+<script setup>
     import { reactive, ref } from 'vue';
     
     import { index } from './setIndex';
@@ -64,7 +66,8 @@ import `Wizard.vue` to **App.vue** or any your **.vue** file
 	    index: indexStep.value++,
 	    name: 'Review Order'
     }])
-    </script>
+</script>
+```
 
 
 ------------
@@ -96,7 +99,6 @@ Validate every single step with `validate` function
             </div>
 	    </Wizard>
     </template>
-```
     
     <script setup>
     import { reactive, ref } from 'vue';
@@ -112,7 +114,7 @@ Validate every single step with `validate` function
         }
     }
     </script>
-
+```
 
 ------------
 
@@ -153,6 +155,7 @@ Trigger function when complete
         alert('completed')
     }
     </script>```
+    
 ## CSS Variables
 ```
 --jdk-fw-max-width
