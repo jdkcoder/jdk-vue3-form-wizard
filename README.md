@@ -196,6 +196,6 @@ function wizardCompleted() {
 --next-btn-bg-hover
 --footer-btn-padding
 --footer-btn-radius
--footer-btn-font-size
+--footer-btn-font-size
 --footer-btn-font-weight
 ```
