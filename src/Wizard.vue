@@ -92,7 +92,6 @@ function back() {
 }
 
 function complete() {
-  index.value = 1
   if(props.completeFunction) {
     props.completeFunction()
   }
