@@ -25,10 +25,10 @@ import { index } from './setIndex'
 import `Wizard.vue` to **App.vue** or any your **.vue** file
 ```html
 <template>
-	<Wizard v-slot="{ index }" :seperator="true" :steps="steps.value">
+    <Wizard v-slot="{ index }" :seperator="true" :steps="steps.value">
         <div v-if='index === 1'>
              Step {{ index }}'s content
-        </div>
+        </div> 
         <div v-if='index === 2'>
             Step {{ index }}'s content
         </div>
@@ -155,7 +155,7 @@ Trigger function when complete
         alert('completed')
     }
     </script>```
-    
+
 ## CSS Variables
 ```
 --jdk-fw-max-width
