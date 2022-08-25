@@ -152,8 +152,8 @@ import { index } from './setIndex';
 import Wizard from './Wizard.vue';
 
 function wizardCompleted() {
-    alert('completed')
     index.value = 1
+    alert('completed')
 }
 </script>
 ```
