@@ -15,78 +15,89 @@
         <span class="step-name">{{ step.name }}</span>
       </button>
     </div>
-    <div class="seperator" :class="{ hidden: !seperator }"></div>
+    <div class="jdk-fw-seperator" :class="{ hidden: !seperator }"></div>
     <div id="step-content">
       <slot :index="index" />
     </div>
     <div id="step-footer">
       <button @click="back" id="back">Back</button>
-      <button @click="next" id="next">Next</button>
+      <button v-if="index != props.steps.length" @click="next" id="next">Next</button>
+      <button
+        v-if="index == props.steps.length"
+        @click="complete()"
+        id="next"
+      >
+        Done
+      </button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { index } from './setIndex'
+import { index } from "./setIndex";
 let props = defineProps({
-    steps: {
-        type: Array,
-        default: () => [
-            {
-                index: 1,
-                name: 'Products Source'
-            },
-            {
-                index: 2,
-                name: 'Add Products'
-            },
-            {
-                index: 3,
-                name: 'Customer Info'
-            },
-            {
-                index: 4,
-                name: 'Review Order'
-            }
-        ]
-    },
-    validateFunction: { type: Function }
-})
-
-
+  steps: {
+    type: Array,
+    default: () => [
+      {
+        index: 1,
+        name: "Nguồn sản phẩm",
+      },
+      {
+        index: 2,
+        name: "Thêm sản phẩm",
+      },
+      {
+        index: 3,
+        name: "Thông tin khách hàng",
+      },
+    ],
+  },
+  validateFunction: { type: Function },
+  completeFunction: { type: Function },
+  seperator: { type: Boolean, default: true },
+});
 
 function changeStep(step) {
+  if (props.validateFunction) {
+    props.validateFunction();
+  }
 
-    if (props.validateFunction) {
-        props.validateFunction()
-    }
-
-    index.value = step.index
+  index.value = step.index;
 }
 
 function next() {
-    if (index.value <= 3) {
-        index.value++
-        if (props.validateFunction) {
-            props.validateFunction()
-        }
-
-    } else {
-        return false
+  if (index.value < props.steps.length) {
+    index.value++;
+    if (props.validateFunction) {
+      props.validateFunction();
     }
-    console.log(index.value);
+  } else {
+    return false;
+  }
+  console.log(index.value);
 }
 
 function back() {
-    if (index.value !== 1) {
-        index.value--
-        if (props.validateFunction) {
-            props.validateFunction()
-        }
+  if (index.value !== 1) {
+    index.value--;
+    if (props.validateFunction) {
+      props.validateFunction();
     }
+  }
 
-    if (index.value === 1) {
-        return 0
-    }
+  if (index.value === 1) {
+    return 0;
+  }
+}
+
+function complete() {
+  index.value = 1
+  if(props.completeFunction) {
+    props.completeFunction()
+  }
 }
 </script>
+<style lang="sass?indentedSyntax">
+@import '@/assets/styles/_form-wizard'
+</style>

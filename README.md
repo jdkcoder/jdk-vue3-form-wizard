@@ -14,17 +14,15 @@ Create the file **setIndex.js** in **src** folder
     export { index }
 
 
-import `{ index }` from **setIndex.js**  to **Wizard.vue** & **App.vue** or any your .vue file
+import `{ index }` from **setIndex.js** to **App.vue** or any your .vue file & **Wizard.vue** 
 
     import { index } from './setIndex'
 
 
-import `Wizard.vue` & `validate` function to **App.vue**
-
-  
+import `Wizard.vue` to **App.vue** or any your .vue file
 
     <template>
-	    <Wizard v-slot="{ index }" :steps="steps.value" :validate-function="validate()">
+	    <Wizard v-slot="{ index }" :seperator="true" :steps="steps.value">
             <div v-if='index === 1'>
                 Step {{ index }}'s content
             </div>
@@ -65,14 +63,86 @@ import `Wizard.vue` & `validate` function to **App.vue**
 	    index: indexStep.value++,
 	    name: 'Review Order'
     }])
+    </script>
+
+Validate every single step with `validate` function
+- Eg: `:validate-function="#YOUR_VALIDATE_FUNCTION"`
+
+    <template>
+	    <Wizard v-slot="{ index }" :validate-function="validate">
+            <div v-if='index === 1'>
+                <label>
+                    <input v-model="orderFrom" value="1" type="radio" name="test" />
+                        Amazon
+                </label>
+                <label>
+                    <input v-model="orderFrom" value="2" type="radio" name="test"/>
+                        External
+                </label>
+            </div>
+            <div v-if='index === 2'>
+                Step {{ index }}'s content
+            </div>
+            <div v-if='index === 3'>
+                Step {{ index }}'s content
+            </div>
+            <div v-if='index === 4'>
+                Step {{ index }}'s content
+            </div>
+	    </Wizard>
+    </template>
     
+    <script setup>
+    import { reactive, ref } from 'vue';
+    import { index } from './setIndex';
+    import Wizard from './Wizard.vue';
+
     function validate() {
         if (index.value > 1) {
-            alert('1')
+            if (!orderFrom) {
+                alert('Choose product source, first')
+                index.value = 1
+            }
         }
     }
     </script>
 
+Trigger function when complete
+- Eg: `:complete-function="#YOUR_COMPLETE_FUNCTION"`
+
+    <template>
+	    <Wizard v-slot="{ index }" :complete-function="wizardCompleted">
+            <div v-if='index === 1'>
+                <label>
+                    <input v-model="orderFrom" value="1" type="radio" name="test" />
+                        Amazon
+                </label>
+                <label>
+                    <input v-model="orderFrom" value="2" type="radio" name="test"/>
+                        External
+                </label>
+            </div>
+            <div v-if='index === 2'>
+                Step {{ index }}'s content
+            </div>
+            <div v-if='index === 3'>
+                Step {{ index }}'s content
+            </div>
+            <div v-if='index === 4'>
+                Step {{ index }}'s content
+            </div>
+	    </Wizard>
+    </template>
+    
+    <script setup>
+    import { reactive, ref } from 'vue';
+    import { index } from './setIndex';
+    import Wizard from './Wizard.vue';
+
+    function wizardCompleted() {
+        alert('completed')
+    }
+    </script>
 ## CSS Variables
 
     --jdk-fw-max-width

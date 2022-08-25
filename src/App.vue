@@ -10,19 +10,22 @@ function validate() {
     }
   }
 }
+function wizardCompleted() {
+  alert('completed')
+}
 </script>
 
 <template>
   <h1>JDK's Vue.js 3 Form Wizard</h1>
 
-  <Wizard v-slot="{ index }" :validate-function="validate()">
+  <Wizard v-slot="{ index }" :seperator="true" :complete-function="wizardCompleted" :validate-function="validate">
     <div v-if='index === 1'>
       <label>
-        <input v-model="orderFrom" value="1" type="radio" name="test" />
+        <input v-model="orderFrom" value="1" name="test" type="radio" />
         Amazon
       </label>
       <label>
-        <input v-model="orderFrom" value="2" type="radio" />
+        <input v-model="orderFrom" value="2" name="test" type="radio" />
         External
       </label>
     </div>

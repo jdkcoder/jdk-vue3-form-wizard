@@ -1,10 +1,11 @@
 #form-wizard
+    --core: #8057d7
     max-width: var(--jdk-fw-max-width, 1200px)
     width: var(--jdk-fw-width, 100vw)
     height: var(--jdk-fw-height, auto)
     overflow: hidden
     border-radius: var(--jdk-fw-radius, .75rem)
-    border: var(--jdk-fw-border, var(--jdk-fw-border-width, 2px) var(--jdk-fw-border-type, dashed) var(--jdk-fw-border-clr, #8057d7))
+    border: var(--jdk-fw-border, var(--jdk-fw-border-width, 2px) var(--jdk-fw-border-type, dashed) var(--jdk-fw-border-clr, var(--core)))
     padding: var(--jdk-fw-padding, 1rem)
     display: grid
     grid-auto-flow: row
@@ -36,9 +37,9 @@
             border-radius: .5rem
 
             &.active
-                --active-bg: #8057d7
-                --active-border-clr: #8057d7
-                --active-step-name-clr: #8057d7
+                --nth-step-active-bg: var(--core)
+                --nth-step-active-border-clr: var(--core)
+                --active-step-name-clr: var(--core)
                 --active-step-num-clr: #161616
 
             & > * + *
@@ -69,13 +70,13 @@
                 color: var(--unactive-step-name-clr, var(--active-step-name-clr, #777))
                 transition: all .25s ease-in
 
-    .seperator
+    .jdk-fw-seperator
         --s: .75rem
         height: var(--sprt-size, var(--s))
         width: var(--sprt-size, var(--s))
         border-radius: var(--sprt-radius, .125rem)
         transform: rotate(45deg)
-        background: var(--sprt-clr, #8057d7)
+        background: var(--sprt-clr, var(--core))
         margin: var(--sprt-margin, var(--sprt-margin-top, 1rem) var(--sprt-margin-right, auto) var(--sprt-margin-bottom, 0) var(--sprt-margin-left, auto))
         position: relative
         pointer-events: none
@@ -123,12 +124,10 @@
                 --footer-btn-bg: var(--back-btn-bg, #434343)
 
                 &:hover
-                    --back-btn-bg-hover: #333
-                    --back-btn-bg: var(--back-btn-bg-hover)
+                    --back-btn-bg: var(--back-btn-bg-hover, #333)
 
             &#next
-                --footer-btn-bg: var(--next-btn-bg, #8057d7)
+                --footer-btn-bg: var(--next-btn-bg, var(--core))
 
                 &:hover
-                    --next-btn-bg-hover: #7751c9
-                    --next-btn-bg: var(--next-btn-bg-hover)
+                    --next-btn-bg: var(--next-btn-bg-hover, #7751c9)
