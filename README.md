@@ -1,25 +1,25 @@
 # Installation
-Clone / download this repository
+- Clone / download this repository
 
-    npm i
-
-    npm run dev
+```
+npm i
+npm run dev```
 
 # Usage
-
 Create the file **setIndex.js** in **src** folder
 
-    import { ref } from 'vue';
-    let index = ref(1)
-    export { index }
+```
+import { ref } from 'vue';
+let index = ref(1)
+export { index }```
 
 
-import `{ index }` from **setIndex.js** to **App.vue** or any your .vue file & **Wizard.vue** 
+import `{ index }` from **setIndex.js** to **App.vue** or any your **.vue** file & **Wizard.vue** 
 
-    import { index } from './setIndex'
-
-
-import `Wizard.vue` to **App.vue** or any your .vue file
+```
+import { index } from './setIndex'```
+------------
+import `Wizard.vue` to **App.vue** or any your **.vue** file
 
     <template>
 	    <Wizard v-slot="{ index }" :seperator="true" :steps="steps.value">
@@ -37,7 +37,7 @@ import `Wizard.vue` to **App.vue** or any your .vue file
             </div>
 	    </Wizard>
     </template>
-    
+	
     <script setup>
     import { reactive, ref } from 'vue';
     
@@ -65,9 +65,13 @@ import `Wizard.vue` to **App.vue** or any your .vue file
     }])
     </script>
 
+
+------------
+
 Validate every single step with `validate` function
 - Eg: `:validate-function="#YOUR_VALIDATE_FUNCTION"`
 
+```html
     <template>
 	    <Wizard v-slot="{ index }" :validate-function="validate">
             <div v-if='index === 1'>
@@ -91,6 +95,7 @@ Validate every single step with `validate` function
             </div>
 	    </Wizard>
     </template>
+```
     
     <script setup>
     import { reactive, ref } from 'vue';
@@ -107,10 +112,14 @@ Validate every single step with `validate` function
     }
     </script>
 
+
+------------
+
 Trigger function when complete
 - Eg: `:complete-function="#YOUR_COMPLETE_FUNCTION"`
 
-    <template>
+```html
+   <template>
 	    <Wizard v-slot="{ index }" :complete-function="wizardCompleted">
             <div v-if='index === 1'>
                 <label>
@@ -142,48 +151,45 @@ Trigger function when complete
     function wizardCompleted() {
         alert('completed')
     }
-    </script>
+    </script>```
 ## CSS Variables
+```
+--jdk-fw-max-width
+--jdk-fw-width
+--jdk-fw-height
+--jdk-fw-radius
+--jdk-fw-border
+--jdk-fw-border-width
+--jdk-fw-border-type
+--jdk-fw-border-clr
+ --jdk-fw-padding
 
-    --jdk-fw-max-width
-    --jdk-fw-width
-    --jdk-fw-height
-    --jdk-fw-radius
-    --jdk-fw-border
-    --jdk-fw-border-width
-    --jdk-fw-border-type
-    --jdk-fw-border-clr
-    --jdk-fw-padding
-    
-    --nth-step-unactive-bg
-    --nth-step-active-bg
-    --nth-step-unactive-border-clr
-    --nth-step-active-border-clr
-    --nth-step-size
+--nth-step-unactive-bg
+--nth-step-active-bg
+--nth-step-unactive-border-clr
+--nth-step-active-border-clr
+--nth-step-size
 
-    --unactive-step-name-clr
-    --active-step-name-clr
-    
-    --sprt-size
-    --sprt-radius
-    --sprt-clr
-    --sprt-margin
-    --sprt-margin-top
-    --sprt-margin-right
-    --sprt-margin-bottom
-    --sprt-margin-left
+--unactive-step-name-clr
+--active-step-name-clr
 
-    --content-margin-bottom
-	
-	--footer-btn-bg
-	--back-btn-bg
-	--back-btn-bg-hover
-	--next-btn-bg
-	--next-btn-bg-hover
-    --footer-btn-padding
-    --footer-btn-radius
-    --footer-btn-font-size
-    --footer-btn-font-weight
-    
-    
-    
+--sprt-size
+--sprt-radius
+--sprt-clr
+--sprt-margin
+--sprt-margin-top
+--sprt-margin-right
+--sprt-margin-bottom
+--sprt-margin-left
+
+--content-margin-bottom
+
+--footer-btn-bg
+--back-btn-bg
+--back-btn-bg-hover
+--next-btn-bg
+--next-btn-bg-hover
+--footer-btn-padding
+--footer-btn-radius
+-footer-btn-font-size
+--footer-btn-font-weight```
