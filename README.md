@@ -38,7 +38,7 @@ import `Wizard.vue` to **App.vue** or any your **.vue** file
         <div v-if='index === 4'>
             Step {{ index }}'s content
         </div>
-	</Wizard>
+    </Wizard>
 </template>
 
 <script setup>
