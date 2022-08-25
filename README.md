@@ -9,7 +9,7 @@ npm run dev
 # Usage
 Create the file **setIndex.js** in **src** folder
 
-```
+```javascript
 import { ref } from 'vue';
 let index = ref(1)
 export { index }
@@ -18,7 +18,7 @@ export { index }
 
 import `{ index }` from **setIndex.js** to **App.vue** or any your **.vue** file & **Wizard.vue** 
 
-```
+```javascript
 import { index } from './setIndex'
 ```
 ------------
@@ -158,7 +158,7 @@ function wizardCompleted() {
 ```
 
 ## CSS Variables
-```
+```css
 --jdk-fw-max-width
 --jdk-fw-width
 --jdk-fw-height
