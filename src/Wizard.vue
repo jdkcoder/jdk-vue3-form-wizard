@@ -80,10 +80,4 @@ function back() {
         return 0
     }
 }
-
-
 </script>
-
-<style lang='sass?indentedSyntax'>
-@import './assets/styles/app.sass'
-</style>

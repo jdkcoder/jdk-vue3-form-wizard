@@ -1,3 +1,17 @@
+<script setup>
+import { index } from './setIndex'
+import Wizard from './Wizard.vue';
+let orderFrom = $ref(null)
+function validate() {
+  if (index.value > 1) {
+    if (!orderFrom) {
+      alert('Choose product source, first')
+      index.value = 1
+    }
+  }
+}
+</script>
+
 <template>
   <h1>JDK's Vue.js 3 Form Wizard</h1>
 
@@ -26,16 +40,6 @@
   <div id="credit"><a href="//github.com/jdkcoder">Joker Dark Knight</a> <span>-</span> <a href="//jdk.vn" target="_blank">wWw.JDK.VN</a></div>
 </template>
 
-<script setup>
-import { index } from './setIndex'
-import Wizard from './Wizard.vue';
-let orderFrom = $ref(null)
-function validate() {
-  if (index.value > 1) {
-    if (!orderFrom) {
-      alert('Choose product source, first')
-      index.value = 1
-    }
-  }
-}
-</script>
+<style lang='sass?indentedSyntax'>
+@import './assets/styles/app.sass'
+</style>
