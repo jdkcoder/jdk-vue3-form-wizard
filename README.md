@@ -9,14 +9,14 @@ Clone / download this repository
 
 Create the file **setIndex.js** in **src** folder
 
-    import { ref } from  'vue';
+    import { ref } from 'vue';
     let index = ref(1)
     export { index }
 
 
-import `{ index }` from **setIndex.js**  to **Wizard.vue** & **App.vue**
+import `{ index }` from **setIndex.js**  to **Wizard.vue** & **App.vue** or any your .vue file
 
-    import { index } from  './setIndex'
+    import { index } from './setIndex'
 
 
 import `Wizard.vue` & `validate` function to **App.vue**
@@ -75,6 +75,9 @@ import `Wizard.vue` & `validate` function to **App.vue**
 
 ## CSS Variables
 
+    --jdk-fw-max-width
+    --jdk-fw-width
+    --jdk-fw-height
     --jdk-fw-radius
     --jdk-fw-border
     --jdk-fw-border-width
@@ -82,30 +85,35 @@ import `Wizard.vue` & `validate` function to **App.vue**
     --jdk-fw-border-clr
     --jdk-fw-padding
     
-    --active-bg
-    --active-border-clr
-    --active-step-name-clr
-    --active-step-num-clr
-    --active-step-name-clr
-    
-    --unactive-bg
-    --unactive-border-clr
-    --unactive-step-num-clr
-    --unactive-step-name-clr
-    
+    --nth-step-unactive-bg
+    --nth-step-active-bg
+    --nth-step-unactive-border-clr
+    --nth-step-active-border-clr
     --nth-step-size
+
+    --unactive-step-name-clr
+    --active-step-name-clr
     
-    --seperator-size
-    --seperator-radius
-    --seperator-clr
-    --seperator-margin-y
-    --seperator-margin-x
+    --sprt-size
+    --sprt-radius
+    --sprt-clr
+    --sprt-margin
+    --sprt-margin-top
+    --sprt-margin-right
+    --sprt-margin-bottom
+    --sprt-margin-left
+
+    --content-margin-bottom
 	
 	--footer-btn-bg
 	--back-btn-bg
 	--back-btn-bg-hover
 	--next-btn-bg
 	--next-btn-bg-hover
+    --footer-btn-padding
+    --footer-btn-radius
+    --footer-btn-font-size
+    --footer-btn-font-weight
     
     
     
