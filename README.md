@@ -73,7 +73,7 @@ let steps = reactive([{
 ------------
 
 Validate every single step with `validate` function
-- Eg: `:validate-function="#YOUR_VALIDATE_FUNCTION"`
+- add attribute `:validate-function="#YOUR_VALIDATE_FUNCTION"`
 
 ```html
 <template>
@@ -119,7 +119,7 @@ function validate() {
 ------------
 
 Trigger function when complete
-- Eg: `:complete-function="#YOUR_COMPLETE_FUNCTION"`
+- add attribute `:complete-function="#YOUR_COMPLETE_FUNCTION"`
 
 ```html
 <template>
