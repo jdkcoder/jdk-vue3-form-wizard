@@ -1,4 +1,5 @@
 # Installation
+Clone / download this repository
 
     npm i
 

@@ -1,20 +1,29 @@
 <template>
-    <div id="form-wizard">
-        <div id="steps">
-            <button v-for="step in props.steps" @click="changeStep(step)" :class="{ active: index === step.index }" :index="step.index" :key="step.index">
-                <p class="nth-step">{{ step.index }}</p>
-                <span class="step-name">{{ step.name }}</span>
-            </button>
-        </div>
-        <div class="seperator"></div>
-        <div id="step-content">
-            <slot :index="index" />
-        </div>
-        <div id="step-footer">
-            <button @click="back" id="back">Back</button>
-            <button @click="next" id="next">Next</button>
-        </div>
+  <div
+    id="form-wizard"
+    :style="{ '--grid-rows: min-content 1fr min-content': !seperator }"
+  >
+    <div id="steps">
+      <button
+        v-for="step in props.steps"
+        @click="changeStep(step)"
+        :class="{ active: index === step.index }"
+        :index="step.index"
+        :key="step.index"
+      >
+        <p class="nth-step">{{ step.index }}</p>
+        <span class="step-name">{{ step.name }}</span>
+      </button>
     </div>
+    <div class="seperator" :class="{ hidden: !seperator }"></div>
+    <div id="step-content">
+      <slot :index="index" />
+    </div>
+    <div id="step-footer">
+      <button @click="back" id="back">Back</button>
+      <button @click="next" id="next">Next</button>
+    </div>
+  </div>
 </template>
 
 <script setup>

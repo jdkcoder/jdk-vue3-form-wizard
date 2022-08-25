@@ -1,11 +1,15 @@
 #form-wizard
-    max-width: 1200px
+    max-width: var(--jdk-fw-max-width, 1200px)
     margin: 2rem auto
-    width: 100vw
+    width: var(--jdk-fw-width, 100vw)
+    height: var(--jdk-fw-height, auto)
     overflow: hidden
     border-radius: var(--jdk-fw-radius, .75rem)
     border: var(--jdk-fw-border, var(--jdk-fw-border-width, 2px) var(--jdk-fw-border-type, dashed) var(--jdk-fw-border-clr, #8057d7))
     padding: var(--jdk-fw-padding, 1rem)
+    display: grid
+    grid-auto-flow: row
+    grid-template-rows: var(--grid-rows, repeat(2, min-content) 1fr min-content)
 
     & > * + *
         margin-top: 1.5rem
@@ -68,12 +72,12 @@
 
     .seperator
         --s: .75rem
-        height: var(--seperator-size, var(--s))
-        width: var(--seperator-size, var(--s))
-        border-radius: var(--seperator-radius, .125rem)
+        height: var(--sprt-size, var(--s))
+        width: var(--sprt-size, var(--s))
+        border-radius: var(--sprt-radius, .125rem)
         transform: rotate(45deg)
-        background: var(--seperator-clr, #8057d7)
-        margin: var(--seperator-margin-y, 1rem) var(--seperator-margin-x, auto)
+        background: var(--sprt-clr, #8057d7)
+        margin: var(--sprt-margin-top, 1rem) var(--sprt-margin-right, auto) var(--sprt-margin-bottom, 0) var(--sprt-margin-left, auto)
         position: relative
         pointer-events: none
 
@@ -93,10 +97,19 @@
         &::before
             transform: translate(-120%, 120%)
 
+    #step-content
+        margin-bottom: 1rem
+        overflow-y: auto
+        overflow-x: hidden
+
+        &::-webkit-scrollbar
+            display: none
+
     #step-footer
         display: flex
         flex-flow: row
         justify-content: space-between
+        margin-top: auto
 
         button
             padding: .375rem 1.5rem
