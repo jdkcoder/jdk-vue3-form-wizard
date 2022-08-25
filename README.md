@@ -3,7 +3,8 @@
 
 ```
 npm i
-npm run dev```
+npm run dev
+```
 
 # Usage
 Create the file **setIndex.js** in **src** folder
