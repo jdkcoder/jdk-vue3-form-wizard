@@ -10,8 +10,8 @@ function validate() {
     }
   }
 }
-function wizardCompleted()
-  alert('completed') {
+function wizardCompleted() {
+  alert('completed')
   index.value = 1
 }
 </script>
