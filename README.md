@@ -42,30 +42,30 @@ import `Wizard.vue` to **App.vue** or any your **.vue** file
 </template>
 
 <script setup>
-    import { reactive, ref } from 'vue';
+import { reactive, ref } from 'vue';
     
-    import { index } from './setIndex';
+import { index } from './setIndex';
 
-    import Wizard from './Wizard.vue';
+import Wizard from './Wizard.vue';
     
-    let indexStep = ref(0);
+let indexStep = ref(0);
     
-    let steps = reactive([{
-	    index: indexStep.value++,
-	    name: 'Products Source'
-    },
-    {
-	    index: indexStep.value++, 
-	    name: 'Add Products'
-    },
-    {
-	    index: indexStep.value++,
-	    name: 'Customer Info'
-    },
-    {
-	    index: indexStep.value++,
-	    name: 'Review Order'
-    }])
+let steps = reactive([{
+    index: indexStep.value++,
+    name: 'Products Source'
+},
+{
+    index: indexStep.value++, 
+    name: 'Add Products'
+},
+{
+    index: indexStep.value++,
+    name: 'Customer Info'
+},
+{
+    index: indexStep.value++,
+    name: 'Review Order'
+}])
 </script>
 ```
 
@@ -76,44 +76,44 @@ Validate every single step with `validate` function
 - Eg: `:validate-function="#YOUR_VALIDATE_FUNCTION"`
 
 ```html
-    <template>
-	    <Wizard v-slot="{ index }" :validate-function="validate">
-            <div v-if='index === 1'>
-                <label>
-                    <input v-model="orderFrom" value="1" type="radio" name="test" />
-                        Amazon
-                </label>
-                <label>
-                    <input v-model="orderFrom" value="2" type="radio" name="test"/>
-                        External
-                </label>
-            </div>
-            <div v-if='index === 2'>
-                Step {{ index }}'s content
-            </div>
-            <div v-if='index === 3'>
-                Step {{ index }}'s content
-            </div>
-            <div v-if='index === 4'>
-                Step {{ index }}'s content
-            </div>
-	    </Wizard>
-    </template>
-    
-    <script setup>
-    import { reactive, ref } from 'vue';
-    import { index } from './setIndex';
-    import Wizard from './Wizard.vue';
+<template>
+    <Wizard v-slot="{ index }" :validate-function="validate">
+        <div v-if='index === 1'>
+            <label>
+                <input v-model="orderFrom" value="1" type="radio" name="test" />
+                    Amazon
+            </label>
+            <label>
+                <input v-model="orderFrom" value="2" type="radio" name="test"/>
+                    External
+            </label>
+        </div>
+        <div v-if='index === 2'>
+            Step {{ index }}'s content
+        </div>
+        <div v-if='index === 3'>
+            Step {{ index }}'s content
+        </div>
+        <div v-if='index === 4'>
+            Step {{ index }}'s content
+        </div>
+    </Wizard>
+</template>
 
-    function validate() {
-        if (index.value > 1) {
-            if (!orderFrom) {
-                alert('Choose product source, first')
-                index.value = 1
-            }
+<script setup>
+import { reactive, ref } from 'vue';
+import { index } from './setIndex';
+import Wizard from './Wizard.vue';
+
+function validate() {
+    if (index.value > 1) {
+        if (!orderFrom) {
+            alert('Choose product source, first')
+            index.value = 1
         }
     }
-    </script>
+}
+</script>
 ```
 
 ------------
@@ -122,39 +122,40 @@ Trigger function when complete
 - Eg: `:complete-function="#YOUR_COMPLETE_FUNCTION"`
 
 ```html
-   <template>
-	    <Wizard v-slot="{ index }" :complete-function="wizardCompleted">
-            <div v-if='index === 1'>
-                <label>
-                    <input v-model="orderFrom" value="1" type="radio" name="test" />
-                        Amazon
-                </label>
-                <label>
-                    <input v-model="orderFrom" value="2" type="radio" name="test"/>
-                        External
-                </label>
-            </div>
-            <div v-if='index === 2'>
-                Step {{ index }}'s content
-            </div>
-            <div v-if='index === 3'>
-                Step {{ index }}'s content
-            </div>
-            <div v-if='index === 4'>
-                Step {{ index }}'s content
-            </div>
-	    </Wizard>
-    </template>
-    
-    <script setup>
-    import { reactive, ref } from 'vue';
-    import { index } from './setIndex';
-    import Wizard from './Wizard.vue';
+<template>
+    <Wizard v-slot="{ index }" :complete-function="wizardCompleted">
+        <div v-if='index === 1'>
+            <label>
+                <input v-model="orderFrom" value="1" type="radio" name="test" />
+                    Amazon
+            </label>
+            <label>
+                <input v-model="orderFrom" value="2" type="radio" name="test"/>
+                    External
+            </label>
+        </div>
+        <div v-if='index === 2'>
+            Step {{ index }}'s content
+        </div>
+        <div v-if='index === 3'>
+            Step {{ index }}'s content
+        </div>
+        <div v-if='index === 4'>
+            Step {{ index }}'s content
+        </div>
+    </Wizard>
+</template>
 
-    function wizardCompleted() {
-        alert('completed')
-    }
-    </script>```
+<script setup>
+import { reactive, ref } from 'vue';
+import { index } from './setIndex';
+import Wizard from './Wizard.vue';
+
+function wizardCompleted() {
+    alert('completed')
+}
+</script>
+```
 
 ## CSS Variables
 ```
@@ -196,4 +197,5 @@ Trigger function when complete
 --footer-btn-padding
 --footer-btn-radius
 -footer-btn-font-size
---footer-btn-font-weight```
+--footer-btn-font-weight
+```
