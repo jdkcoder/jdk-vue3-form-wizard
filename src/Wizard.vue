@@ -41,15 +41,15 @@ let props = defineProps({
     default: () => [
       {
         index: 1,
-        name: "Nguồn sản phẩm",
+        name: "Product Source",
       },
       {
         index: 2,
-        name: "Thêm sản phẩm",
+        name: "Add Product",
       },
       {
         index: 3,
-        name: "Thông tin khách hàng",
+        name: "Customer Info",
       },
     ],
   },
